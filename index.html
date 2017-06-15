@@ -1,64 +1,13 @@
-<!doctype html>
-<html ng-app>
-   
-   <head>
-      <script>
-    document.write('<base href="' + document.location + '" />');
-  </script>
-  <link rel="stylesheet" href="style.css" />
-  <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.3/angular.js" data-semver="1.4.3"></script>
-  <script data-require="angular-route@*" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular-route.js"></script>
-  <script src="app.js"></script>
-   </head>
-   
-   <body>
-      <div id="myTextPanel" class="ng-scope">
-    <script type="text/javascript">
-
-      function refreshMyPanel() {
-        $.ajax({url: "http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.txt"}).done( 
-          function(data) { 
-            $("#myTextPanel").closest(".panel-container").find('.panel-loading').removeClass("ng-hide");
-            $("#myResult").text(data);
-            setTimeout(function() { $("#myTextPanel").closest(".panel-container").find('.panel-loading').addClass("ng-hide"); }, 1000);
-          } 
-        );
-      }
-
-      $(document).ready(function() {
-
-        refreshMyPanel(); // For the initial load of data
-
-        // Refetch data every time the "refresh" event is broadcast
-        angular.element($("#myTextPanel")).scope().$on("refresh", function() {
-          refreshMyPanel();
-        });
-      });
-
-    </script>
-    <span id="myResult" /> 
-</div>
-   </body>
-</html>
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Page Title</title>
-$(document).ready(function() {
-    $("#lesen").click(function() {
-        $.ajax({
-            url : "http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.csv",
-            dataType: "csv",
-            success : function (data) {
-                $(".text").html(data);
-            }
-        });
-    });
-});
+<script type="text/javascript">
+    pageExecute.init();
+</script>
     </head>
 <body>
-  <h1 class="text"></h1>
-  <p>This is a paragraph.</p>
+ <script type="text/javascript"> alert(pageExecute.fileContents); </script>
 </body>
 
-</html> -->
+</html>
