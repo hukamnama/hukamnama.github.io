@@ -11,16 +11,33 @@
   <script src="app.js"></script>
    </head>
    
-   <body ng-controller="MainCtrl">
-      <div>
-         <label>Name:</label>
-         <input type = "text" ng-model = "yourName" placeholder = "Enter a name here">
-         <hr />
-         
-         <h1>Hello {{yourName}}!</h1>
-      </div>
-       <h3>Terms</h3></p>
-  <pre><ng-include src="'http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.txt'"></ng-include></pre>
+   <body>
+      <div id="myTextPanel" class="ng-scope">
+    <script type="text/javascript">
+
+      function refreshMyPanel() {
+        $.ajax({url: "http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.txt"}).done( 
+          function(data) { 
+            $("#myTextPanel").closest(".panel-container").find('.panel-loading').removeClass("ng-hide");
+            $("#myResult").text(data);
+            setTimeout(function() { $("#myTextPanel").closest(".panel-container").find('.panel-loading').addClass("ng-hide"); }, 1000);
+          } 
+        );
+      }
+
+      $(document).ready(function() {
+
+        refreshMyPanel(); // For the initial load of data
+
+        // Refetch data every time the "refresh" event is broadcast
+        angular.element($("#myTextPanel")).scope().$on("refresh", function() {
+          refreshMyPanel();
+        });
+      });
+
+    </script>
+    <span id="myResult" /> 
+</div>
    </body>
 </html>
 <!--<!DOCTYPE html>
