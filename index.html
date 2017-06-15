@@ -9,8 +9,8 @@
 $(document).ready(function() {
     $("#lesen").click(function() {
         $.ajax({
-            url : "http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.csv",
-            dataType: "csv",
+            url : "http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.txt",
+            dataType: "text",
             success : function (data) {
                 $(".text").html(data);
             }
