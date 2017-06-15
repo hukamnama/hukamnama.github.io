@@ -1,9 +1,20 @@
- <!DOCTYPE html>
+$(document).ready(function() {
+    $("#lesen").click(function() {
+        $.ajax({
+            url : "http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.csv",
+            dataType: "csv",
+            success : function (data) {
+                $(".text").html(data);
+            }
+        });
+    });
+}); 
+<!DOCTYPE html>
 <html>
 <title>Page Title</title>
 
 <body>
-  <h1>This is a heading</h1>
+  <h1 class="text"></h1>
   <p>This is a paragraph.</p>
 </body>
 
