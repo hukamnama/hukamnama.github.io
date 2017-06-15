@@ -6,7 +6,7 @@ var pageExecute = {
 
     init: function () {
         $.ajax({
-            url: "http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.txt",
+            url: "paragraph.txt",
             async: false,
             success: function (data){
                 pageExecute.fileContents = data;
