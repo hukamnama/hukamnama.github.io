@@ -7,13 +7,13 @@
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    $("#lesen").click(function() {
+    
         $.ajax({
             url : "http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.txt",
             dataType: "text",
             success : function (data) {
                 $(".text").html(data);
-            }
+            
         });
     });
 });
