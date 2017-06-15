@@ -1,33 +1,22 @@
- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>jQuery Select Element by ID</title>
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-    $("button").click(function () {
-        $.ajax({
-            url : "http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.txt",
-            dataType: "text",
-            success : function (result) {
-                $("#container").html(result);
-            }
-        });
-    });
-});
-</script> 
-</head>
-<body>
- <button name="handa">Hello</button>
-    <p id="container">This is a paragraph.</p>
-    <h1 class="text"></h1>
-    <p>This is another paragraph.</p>
-    <p>This is one more paragraph.</p>
-    <p><strong>Note:</strong> The value of the id attribute must be unique in an HTML document.</p>
-</body>
-</html>                                		
+<!doctype html>
+<html ng-app>
+   
+   <head>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+   </head>
+   
+   <body>
+      <div>
+         <label>Name:</label>
+         <input type = "text" ng-model = "yourName" placeholder = "Enter a name here">
+         <hr />
+         
+         <h1>Hello {{yourName}}!</h1>
+      </div>
+       <h3>Terms</h3></p>
+  <pre><ng-include src="http://shinecoachings.com/~aeon/hukamnama/hukamnama_eng/paragraph.csv"></ng-include></pre>
+   </body>
+</html>
 <!--<!DOCTYPE html>
 <html>
 <head>
